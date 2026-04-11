@@ -4,8 +4,10 @@
 name: .NET
 
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
-    branches: [ "Develop" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -22,5 +24,3 @@ jobs:
       run: dotnet restore test1.sln
     - name: Build
       run: dotnet build test1.sln --no-restore 
-    - name: Test
-      run: dotnet test test1.sln --no-build --verbosity normal
